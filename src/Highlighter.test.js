@@ -205,8 +205,8 @@ describe('Highlighter', () => {
     const customWordsRegex = /(This|Numbers)/
     const node = getHighlighterChildren({
       textToHighlight: 'This is text but 123 and 000 are Numbers',
-      searchWords: [numbersRegex, customWordsRegex],
-    });
+      searchWords: [numbersRegex, customWordsRegex]
+    })
     const matches = node.querySelectorAll(HIGHLIGHT_QUERY_SELECTOR)
     expect(matches.length).to.equal(4)
     expect(node.textContent).to.equal('This is text but 123 and 000 are Numbers')
