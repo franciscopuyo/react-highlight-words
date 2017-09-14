@@ -16,7 +16,7 @@ export default class HighlighterExample extends Component {
   render () {
     const { ...props } = this.props
     const { activeIndex, searchText, textToHighlight } = this.state
-    const searchWords = searchText.split(/\s/).filter(word => word)
+    const searchWords = searchText.split(/\s/).filter(word => word).map(word => (new RegExp(word)));
 
     return (
       <div {...props}>
@@ -65,7 +65,6 @@ export default class HighlighterExample extends Component {
           activeIndex={activeIndex}
           highlightClassName={styles.Highlight}
           highlightStyle={{ fontWeight: 'normal' }}
-          sanitize={latinize}
           searchWords={searchWords}
           textToHighlight={textToHighlight}
         />
